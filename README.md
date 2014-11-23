@@ -1,6 +1,3 @@
-Getting-and-Cleaning-Data
-=========================
-
 Human Activity Recognition Using Smartphones Dataset
 Version 2.0
 ==================================================================
