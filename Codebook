@@ -1,0 +1,57 @@
+Codebook for run_analysis.R 
+
+Creates RA_Data.txt, a dataset of means for each mean and standard deviation for each subject, activity, and feature (body motion) as recorded by Samsung Galaxy III accelerometer. See Readme.txt for further detail.
+
+Downloaded data files from:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+=====================================================================
+Xtest: Test data set - 2947 X 561
+Ytest: Test data set labels 2947 X 1
+TestSub: Test subject id - 2947 X 1
+Xtrain: Train data set - 7352 X 561
+Ytrain: Train data set labels - 7352 X 1
+TrainSub: Train subject id - 7352 X 1
+feature: feature labels (i.e. variable labels) - 561 X 2
+act_lab: activity lables - 1 X 6
+
+Variablers in order of occurance
+======================================================================
+tt: matrix of test and training data with column labels - 10299 X 561
+
+m: Vecotr of column numbers for all feature means - 33 X 1
+
+s: Vecotr of column numbers for all feature standard deviations - 33 X 1
+
+ms: Vector of sorted in column numbers for m and s - 66 X 1
+
+mstt: Matrix of mean and stand deviation of all features - 10299 X 66
+
+act: Vector of activity names, made from Ytest and Ytrain - 10299 X 1
+
+sub: Vector of subject codes, made from TestSub and TrainSub - 10299 X 1
+
+asms: Matrix of act, sub and ms - 10299 X 68
+
+ASM: Matirx of mean of means and standard deviations by activity and subject - 180 X 68
+
+S: Scaler identifying the number of subjects, used to replace activity code with nameA <- length(unique(asms$Activity)) # Count for loop to get mean for each activity
+
+A: Scaler identifying the number of activities, used to replace activity code with nameA <- length(unique(asms$Activity)) # Count for loop to get mean for each activity
+
+i: Index for subjects, used in for loop
+
+j: Index for activities, used in for loop
+
+sub_vect: Vector of means for all activities for a given subject, used in for loop to build ASM - 1 X 68
+
+act_vect: Vector of means for given activity and subject, used in for loop to build ASM - 1 X 68
+
+Activity: vector of activity names to that match activity codes in ASM - 180 X 1
+
+N: Scaler for number of activies
+
+i: Index for counting activities
+
+iv: Logical vector matching activity code and name - 180 X 1
+
+RAD: Data frame with all mean data by activity and subject, 180 X 68
